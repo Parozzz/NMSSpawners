@@ -17,7 +17,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
-import spawner.NMSSpawner.SpawnerItemException;
 
 /**
  *
@@ -47,7 +46,7 @@ public class SpawnerListenerExample implements Listener
                 try { //If the itemStack is a spawner with the right nbt, no exception will be thrown
                     //Convert the itemStack to the wrapper
                     spawner = new NMSSpawner(e.getItemInHand());
-                } catch (SpawnerItemException ex) { //In case the itemStack has not the right nbt, i'll convert the spawner to the wrapper
+                } catch (NMSSpawner.SpawnerItemException ex) { //In case the itemStack has not the right nbt, i'll convert the spawner to the wrapper
                     spawner = new NMSSpawner(cs);
                 }
             }
